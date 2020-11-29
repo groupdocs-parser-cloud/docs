@@ -8,11 +8,6 @@ description: ""
 keywords: ""
 ---
 
-
-
-
-
-
 # Overview #
 
 GroupDocs.Parser Cloud is a document data extraction REST API from over 50 document types. One of the most valuable features of GroupDocs.Parser Cloud is parsing documents with predefined templates. It's easy to define template and extract data from invoices, prices or other kinds of your typical documents. The API also provides methods to extract images, extract text. You can do it with regular documents and containers like ZIP archives, OST/PST mail data files and PDF portfolios. Below, the shortlist of possible actions:
@@ -27,14 +22,9 @@ The template can be passed as an object. Also, you can save your named templates
 
 GroupDocs.Parser Cloud provides text extraction method that covers various text retrieval scenarios:
 
-* 
-Extract a plain text from any of the supporting documents;
-
-* 
-Extract HTML or Markdown-formatted text for a fast preview;
-
-* 
-Extract particular pages of plain or formatted text.
+* Extract a plain text from any of the supporting documents;
+* Extract HTML or Markdown-formatted text for a fast preview;
+* Extract particular pages of plain or formatted text.
 
 
 ### Extract Formatted Text ###
@@ -43,14 +33,9 @@ In addition to standard text extraction modes, GroupDocs.Parser Cloud API provid
 
 At this moment the following formats are supported:
 
-* 
-Plain Text
-
-* 
-Markdown
-
-* 
-HTML
+* Plain Text
+* Markdown
+* HTML
 
 
 #### Plain Text ####
@@ -60,28 +45,15 @@ With Plain Text mode GroupDocs.Parser Cloud performs formatting in plain text ma
 #### Markdown ####
 
 This mode is useful when you need to export the extracted text to any system that supports [Markdown](https://en.wikipedia.org/wiki/Markdown)-formatted text.
-|---|---
 
 At this moment the following formattings are supported:
 
-* 
-Bold text
-
-* 
-Italic text
-
-* 
-Hyperlinks
-
-* 
-Headings
-
-* 
-Numbering and bullets lists
-
-* 
-Tables
-
+* Bold text
+* Italic text
+* Hyperlinks
+* Headings
+* Numbering and bullets lists
+* Tables
 
 #### HTML ####
 
@@ -89,22 +61,17 @@ GroupDocs.Parser Cloud also supports HTML formatting.
 
 Following HTML tags are now supported when extracting text with this formatting mode:
 
-
-
- 
-
-|<p>|Paragraph is surrounded by <p> tag
-|---|---
-|<a>|Hyperlinks
-|<b>|Text with Bold font is surrounded by <b> tag
-|<i>|Text with Italic font is surrounded by <i> tag
-|<h1> – <h6>|If the heading has 'Heading X' style, it's surrounded by <hx> tag
-|<ol>/<ul>|Numbering and bullets lists
-|<table>|Tables
-
-
- 
-
+{{<table "table table-striped table-bordered">}}
+|Tag|Description|
+|---|---|
+|\<p\>|Paragraph is surrounded by \<p\> tag|
+|\<a\>|Hyperlinks|
+|\<b\>|Text with Bold font is surrounded by \<b\> tag|
+|\<i\>|Text with Italic font is surrounded by \<i\> tag|
+|\<h1\> – \<h6\>|If the heading has 'Heading X' style, it's surrounded by \<hx\> tag|
+|\<ol\>/\<ul\>|Numbering and bullets lists|
+|\<table\>|Tables|
+{{</table>}}
 
 ## Extract Images ##
 
@@ -120,10 +87,6 @@ GroupDocs.Parser Cloud provides methods that help you to create, update, retriev
 
 # API Endpoint Groups Overview #
 
-
-
- 
-
 |Endpoint Group|Description
 |---|---
 |Info|It contains endpoints for obtaining list of formats supported by GroupDocs.Parser Cloud, getting basic information about the document and its pages, getting information about container items.
@@ -133,11 +96,10 @@ GroupDocs.Parser Cloud provides methods that help you to create, update, retriev
 |Folder|Contains endpoints for creating, copy, move, delete folders in the storage
 |Storage|Contains endpoints for obtaining storage information and file information
 
-
 # Security and Authentication #
 
-The GroupDocs.Parser Cloud API is secured and requires authentication. Two keys AppSID and AppKey are required for Authentication which can be created at the [Dashboard](http://dashboard.groupdocs.cloud/). Check [Authenticating API Requests]({{< ref "total/getting-started/overview-rest-api/authenticating-api-requests.md" >}})) article for the complete example.
-|---|---|---|---
+The GroupDocs.Parser Cloud API is secured and requires authentication. Two keys Client Id and Client Secret are required for Authentication which can be created at the [Dashboard](http://dashboard.groupdocs.cloud).
+Check [Authenticating API Requests]({{< ref "total/getting-started/overview-rest-api/authenticating-api-requests.md" >}}) article for complete example.
 
 
 # SDKs #
@@ -147,20 +109,10 @@ Check out our GitHub [repository](https://github.com/groupdocs-parser-cloud) for
 
 At the moment following SDKs are provided: 
 
-* 
-.NET 2.0 ([Sources](https://github.com/groupdocs-parser-cloud/groupdocs-parser-cloud-dotnet), NuGet Package)
-
-* 
-Java ([Sources](https://github.com/groupdocs-parser-cloud/groupdocs-parser-cloud-java), Jar)
-
-
+* .NET 2.0 ([Sources](https://github.com/groupdocs-parser-cloud/groupdocs-parser-cloud-dotnet), NuGet Package)
+* Java ([Sources](https://github.com/groupdocs-parser-cloud/groupdocs-parser-cloud-java), Jar)
 
 # API Explorer #
 
 
 The easiest way to try out our API right away in your browser! With the [GroupDocs Cloud API explorer](https://apireference.groupdocs.cloud/parser/). This is a collection of Swagger documentation for the GroupDocs Cloud APIs. You can get information about all the resources in the API. It also provides testing and interactivity to our API endpoint documentation.
-
-
-\\
-
-

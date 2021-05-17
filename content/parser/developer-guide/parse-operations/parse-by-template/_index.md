@@ -13,17 +13,13 @@ keywords: ""
 
 
 
-# Introduction #
+## Introduction ##
 
 This REST API provides the functionality to extract data from documents. This method parses document content by a user-generated template.
 
 The template can be provided as an object or storage path. For protected documents, it is also required to provide a password.
 
 The table below contains the full list of properties that can be specified when parsing documents by a template.
-
-
-
- 
 
 |Name|Description|Comment
 |---|---|---
@@ -35,10 +31,7 @@ The table below contains the full list of properties that can be specified when 
 |TemplatePath|The path of the file, located in the storage, which contains a user-generated template to parse data. It is used when the template parameter is not provided. |The template must be provided by this field or by Template.
 |Template|User-generated [template]("TemplateTemplateParametersTable") object to extract metadata from the document. |Template must be provided by this field or by TemplatePath.
 
-
-## Template ##
-
-{{id name#"TemplateParametersTable"/}}
+### Template ###
 
 |Name|Description|Comment
 |---|---|---
@@ -55,63 +48,45 @@ The table below contains the full list of properties that can be specified when 
 |FieldPosition.IsTopLinked|The value that indicates whether a field is searched by the top from the linked field.|Is used if “Linked” FieldPositionType is set.
 |FieldPosition.IsBottomLinked|The value that indicates whether a field is searched by the bottom from the linked field.|Is used if “Linked” FieldPositionType is set.
 |FieldPosition.SearchArea|The size of the area where a field is searched.|Required if “Linked” FieldPositionType is set.
-|SearchArea.Height|The height of search area.| 
-|SearchArea.Width|The width of search area.| 
+|SearchArea.Height|The height of search area.|
+|SearchArea.Width|The width of search area.|
 |FieldPosition.AutoScale|The value that indicates whether SearchArea is scaled by the linked field size.|Is used if “Linked” FieldPositionType is set.
 |Template.Tables|Template tables.|Required if Template.Fields are not provided.
 |Table.FieldName|A unique template table name.|Required.
 |Table.PageIndex|The page index.|An integer value that represents the index of the page where the template item is located; null if the template item is located on any page.
 |Table.DetectorParametes|Provides parameters for the table detection algorithms.|Required if TableLayout is not provided.
-|DetectorParameters.MinRowCount|The minimum number of the table rows.| 
-|DetectorParameters.MinColumnCount|The minimum number of the table columns.| 
-|DetectorParameters.MinVerticalSpace|The minimum space between the table columns.| 
-|DetectorParameters.HasMergedCells|The value that indicates whether the table has merged cells.| 
-|DetectorParameters.Rectangle|The [rectangular area]("RectangleRectangleParametersTable") that contains the table.| 
-|DetectorParameters.VerticalSeparators|The table columns separators.| 
+|DetectorParameters.MinRowCount|The minimum number of the table rows.|
+|DetectorParameters.MinColumnCount|The minimum number of the table columns.|
+|DetectorParameters.MinVerticalSpace|The minimum space between the table columns.|
+|DetectorParameters.HasMergedCells|The value that indicates whether the table has merged cells.|
+|DetectorParameters.Rectangle|The [rectangular area]("RectangleRectangleParametersTable") that contains the table.|
+|DetectorParameters.VerticalSeparators|The table columns separators.|
 |Table.TableLayout|Provides the template table layout which is used Table to define table position.|Required if DetectorParameters is not provided.
-|TableLayout.VerticalSeparators|The table columns separators.| 
-|TableLayout.HorizontalSeparators|The table rows separators.| 
+|TableLayout.VerticalSeparators|The table columns separators.|
+|TableLayout.HorizontalSeparators|The table rows separators.|
 
-
-## Rectangle ##
-
-{{id name#"RectangleParametersTable"/}}
+### Rectangle ###
 
 |Name|Description|Comment
 |---|---|---
 |Rectangle.Position|The coordinates of the upper-left corner of the rectangular area.|Required if Rectangle.Coordinates is not provided.
-|Position.X|X-coordinate of upper-left rectangle corner.| 
-|Position.Y|Y-coordinate of upper-left rectangle corner.| 
+|Position.X|X-coordinate of upper-left rectangle corner.|
+|Position.Y|Y-coordinate of upper-left rectangle corner.|
 |Rectangle.Size|Represents a size of rectangular area.|Required if Rectangle.Coordinates is not provided.
-|Size.Height|The height of rectangular area.| 
-|Size.Width|The width of rectangular area.| 
-|Rectangle.Coordinates|Coordinates of the rectangular area edges.| 
-|Coordinates.Top|The y-coordinate of the top edge of the rectangular area.| 
-|Coordinates.Right|The x-coordinate of the right edge of the rectangular area.| 
-|Coordinates.Left|The x-coordinate of the left edge of the rectangular area.| 
-|Coordinates.Bottom|The y-coordinate of the bottom edge of the rectangular area.| 
+|Size.Height|The height of rectangular area.|
+|Size.Width|The width of rectangular area.|
+|Rectangle.Coordinates|Coordinates of the rectangular area edges.|
+|Coordinates.Top|The y-coordinate of the top edge of the rectangular area.|
+|Coordinates.Right|The x-coordinate of the right edge of the rectangular area.|
+|Coordinates.Left|The x-coordinate of the left edge of the rectangular area.|
+|Coordinates.Bottom|The y-coordinate of the bottom edge of the rectangular area.|
 
+### Resource URI ###
 
- 
-
-
-## Resource URI ##
-
-
-
- 
-
-```html 
-
+```html
 HTTP POST ~/parse
-
- ```
-
- 
-
+```
 
 [Swagger UI](https://apireference.groupdocs.cloud/parser/#/Parse/Parse) lets you call this REST API directly from the browser.  
-|---|---
 
-## Use Cases ##
-
+### Use Cases ###

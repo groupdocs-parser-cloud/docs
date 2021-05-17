@@ -9,6 +9,3 @@ keywords: ""
 ---
 
 ### Template Operations ###
-
-
-

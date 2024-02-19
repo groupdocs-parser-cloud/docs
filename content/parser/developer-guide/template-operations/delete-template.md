@@ -6,23 +6,17 @@ productName: "GroupDocs.Parser Cloud"
 weight: 3
 description: ""
 keywords: ""
+toc: True
 ---
 
-
-
-
-
-
-## Introduction ##
-
-This REST API provides the functionality to remove files which no more useful in Parse endpoint. You can use [storage methods]({{< ref "parser/developer-guide/storage-operations/_index.md" >}}) to remove template files as well. The table below contains the full list of properties.
+This REST API provides the functionality to remove files which no more useful in Parse endpoint. You can use [storage methods]({{< ref "/parser/developer-guide/storage-operations/_index.md" >}}) to remove template files as well. The table below contains the full list of properties.
 
 |Name|Description|Comment
 |---|---|---
 |TemplatePath|The path of the template, located in the storage.|**Required.**
 |FileInfo.StorageName|Storage name|It could be omitted for default storage.
 
-### Resources ###
+## Resources
 
 The following GroupDocs.Parser Cloud REST API resource has been used in the [Delete Template](https://apireference.groupdocs.cloud/parser/#/Template/DeleteTemplate) example.
 
@@ -32,12 +26,12 @@ The following GroupDocs.Parser Cloud REST API resource has been used in the [Del
 HTTP DELETE ~/template
 ```
 
-### cURL Example ###
+## cURL example
 
 The following example demonstrates how to Delete a Template.
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
-{{< tab tabNum="1" >}}
+{{< tabs "example1">}}
+{{< tab "Request" >}}
 
 ```bash
 # First get JSON Web Token
@@ -62,26 +56,24 @@ curl -v "https://api.groupdocs.cloud/v1.0/parser/template" \
 ```
 
 {{< /tab >}}
-{{< tab tabNum="2" >}}
+{{< tab "Response" >}}
 
-```html
+```bash
 An empty response with '204 No Content' is returned to confirm deletion.
 ```
 
 {{< /tab >}}
 {{< /tabs >}}
 
-### SDKs ###
+## SDK examples
 
-Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/groupdocs-parser-cloud) for a complete list of GroupDocs.Parser Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs]({{< ref "parser/getting-started/available-sdks.md" >}}) article to learn how to add an SDK to your project.
+Using an SDK (API client) is the quickest way for a developer to speed up the development. An SDK takes care of a lot of low-level details of making requests and handling responses and lets you focus on writing code specific to your particular project. Check out our [GitHub repository](https://github.com/groupdocs-parser-cloud) for a complete list of GroupDocs.Parser Cloud SDKs along with working examples, to get you started in no time. Please check [Available SDKs]({{< ref "/parser/getting-started/available-sdks.md" >}}) article to learn how to add an SDK to your project.
 
-#### Delete Template Examples ####
-
-{{< tabs tabTotal="2" tabID="2" tabName1="C#" tabName2="Java" >}}
-{{< tab tabNum="1" >}}
+{{< tabs "example2">}}
+{{< tab "C#" >}}
 {{< gist groupdocscloud 39135fbf5cfb74deeeae6c47eafb2473 Parser_CSharp_Delete_Template.cs >}}
 {{< /tab >}}
-{{< tab tabNum="2" >}}
+{{< tab "Java" >}}
 {{< gist groupdocscloud c8b8e01a52ef2bae6fa5d78aba152238 Parser_Java_Delete_Template.java >}}
 {{< /tab >}}
 {{< /tabs >}}

@@ -6,14 +6,8 @@ productName: "GroupDocs.Parser Cloud"
 weight: 2
 description: ""
 keywords: ""
+toc: True
 ---
-
-
-
-
-
-
-## Introduction ##
 
 This REST API provides the functionality to extract text from the document.
 There are several ways to extract text from a document:
@@ -36,7 +30,7 @@ The table below contains the full list of properties that can be specified when 
 |StartPageNumber|Extraction start page.|The zero-based index. Extracts all pages if not specified.
 |CountPagesToExtract|The number of pages to extract.|Required if StartPageNumber is specified.
 
-### Resource URI ###
+## Resource URI
 
 ```html
 HTTP POST ~/text
@@ -44,4 +38,4 @@ HTTP POST ~/text
 
 [Swagger UI](https://apireference.groupdocs.cloud/parser/#/Parse/Text) lets you call this REST API directly from the browser.  
 
-### Use Cases ###
+## Use Cases

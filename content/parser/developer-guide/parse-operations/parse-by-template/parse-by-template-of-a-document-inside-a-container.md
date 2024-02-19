@@ -6,27 +6,21 @@ productName: "GroupDocs.Parser Cloud"
 weight: 1
 description: ""
 keywords: ""
+toc: True
 ---
-
-
-
-
-
-
-## Introduction ##
 
 This REST API allows extracting fields and tables from a document placed in a container like ZIP archive, emails, PDF portfolios, etc. by specifying the ContainerItemInfo parameter.
 
 The following example demonstrates how to extract data from a container item. Here you can see how to parse text fields by regular expressions and a table inside the container item document.
 
-### Resource ###
+## Resource
 
 The following GroupDocs.Parser Cloud REST API resource has been used in the [Parse by Template of a document inside a container](https://apireference.groupdocs.cloud/parser/#/Template) example.
 
-### cURL Example ###
+## cURL example
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Request" tabName2="Response" >}}
-{{< tab tabNum="1" >}}
+{{< tabs "example1">}}
+{{< tab "Request" >}}
 
 ```bash
 # First get JSON Web Token
@@ -57,7 +51,7 @@ curl -v "https://api.groupdocs.cloud/v1.0/parser/parse" \
 ```
 
 {{< /tab >}}
-{{< tab tabNum="2" >}}
+{{< tab "Response" >}}
 
 ```json
 {
@@ -445,17 +439,15 @@ curl -v "https://api.groupdocs.cloud/v1.0/parser/parse" \
 {{< /tab >}}
 {{< /tabs >}}
 
-### SDKs ###
+## SDK examples
 
 Our API is completely independent of your operating system, database system or development language. You can use any language and platform that supports HTTP to interact with our API. However, manually writing client code can be difficult, error-prone and time-consuming. Therefore, we have provided and support API [SDKs](https://github.com/groupdocs-parser-cloud) in many development languages in order to make it easier to integrate with us. If you use [SDK](https://github.com/groupdocs-parser-cloud), it hides the [Parser API](https://apireference.groupdocs.cloud/parser/#/Parse) calls and lets you use GroupDocs Cloud features in a native way for your preferred language.
 
-#### Parse by Template of a Document Inside a Container Examples ####
-
-{{< tabs tabTotal="2" tabID="2" tabName1="C#" tabName2="Java" >}}
-{{< tab tabNum="1" >}}
+{{< tabs "example2">}}
+{{< tab "C#" >}}
 {{< gist groupdocscloud 39135fbf5cfb74deeeae6c47eafb2473 Parser_CSharp_Parse_by_Template_document_inside_container.cs >}}
 {{< /tab >}}
-{{< tab tabNum="2" >}}
+{{< tab "Java" >}}
 {{< gist groupdocscloud c8b8e01a52ef2bae6fa5d78aba152238 Parser_Java_Parse_by_Template_document_inside_container.java >}}
 {{< /tab >}}
 {{< /tabs >}}

@@ -8,11 +8,7 @@ description: ""
 keywords: ""
 ---
 
-## Running GroupDocs.Parser Cloud Examples ##
-
 All examples of GroupDocs.Parser Cloud is hosted on [Github](https://github.com/groupdocs-parser-cloud). Examples are located in the Examples folder.
-
-## Contribute ##
 
 If you like to add or improve an example, we encourage you to contribute to the project. All examples and showcase projects in this repository are open source and can be freely used in your own applications.
 

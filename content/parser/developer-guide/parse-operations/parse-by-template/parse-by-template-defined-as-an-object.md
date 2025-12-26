@@ -20,26 +20,24 @@ The following GroupDocs.Parser Cloud REST API resource has been used in the [Par
 ## cURL example
 
 {{< tabs "example1">}}
-{{< tab "Request" >}}
+{{< tab "Linux/MacOS/Bash" >}}
 
 ```bash
 # First get JSON Web Token
-# Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
-# Kindly place Client Id in "client_id" and Client Secret in "client_secret" argument.
-curl -v "https://api.groupdocs.cloud/connect/token" \
--X POST \
--d "grant_type#client_credentials&#x26;client_id#xxxx&#x26;client_secret#xxxx" \
--H "Content-Type: application/x-www-form-urlencoded" \
--H "Accept: application/json"
-  
-# cURL example to join several documents into one
-curl -v "https://api.groupdocs.cloud/v1.0/parser/parse" \
--X POST \
--H "Content-Type: application/json" \
--H "Accept: application/json" \
--H "Authorization: Bearer 
-<jwt token>" \
--d "{
+# Retrieve your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
+curl -v 'https://api.groupdocs.cloud/connect/token' \
+  -X POST \
+  -d "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Accept: application/json'
+
+# cURL example to parse a document
+curl -v 'https://api.groupdocs.cloud/v1.0/parser/parse' \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -d '{
     "Template": {
         "Fields": [
             {
@@ -102,12 +100,119 @@ curl -v "https://api.groupdocs.cloud/v1.0/parser/parse" \
         ]
     },
     "FileInfo": {
-        "FilePath": "words\docx\companies.docx",
+        "FilePath": "words\\docx\\companies.docx",
         "StorageName": ""
+    }
+}'
+```
+{{< /tab >}}
+
+{{< tab "Windows PowerShell" >}}
+
+```powershell
+# First get JSON Web Token
+# Retrieve your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
+curl.exe -v 'https://api.groupdocs.cloud/connect/token' `
+  -X POST `
+  -d "grant_type=client_credentials&client_id=$env:CLIENT_ID&client_secret=$env:CLIENT_SECRET" `
+  -H 'Content-Type: application/x-www-form-urlencoded' `
+  -H 'Accept: application/json'
+
+# cURL example to parse a document
+curl.exe -v 'https://api.groupdocs.cloud/v1.0/parser/parse' `
+  -X POST `
+  -H 'Content-Type: application/json' `
+  -H 'Accept: application/json' `
+  -H "Authorization: Bearer $env:JWT_TOKEN" `
+  -d "{
+    'Template': {
+        'Fields': [
+            {
+                'FieldName': 'Address',
+                'FieldPosition': {
+                    'FieldPositionType': 'Regex',
+                    'Regex': 'Company address:'
+                }
+            },
+            {
+                'FieldName': 'CompanyAddress',
+                'FieldPosition': {
+                    'FieldPositionType': 'Linked',
+                    'LinkedFieldName': 'ADDRESS',
+                    'IsRightLinked': true,
+                    'SearchArea': {
+                        'Height': 10.0,
+                        'Width': 100.0
+                    },
+                    'AutoScale': true
+                }
+            },
+            {
+                'FieldName': 'Company',
+                'FieldPosition': {
+                    'FieldPositionType': 'Regex',
+                    'Regex': 'Company name:'
+                }
+            },
+            {
+                'FieldName': 'CompanyName',
+                'FieldPosition': {
+                    'FieldPositionType': 'Linked',
+                    'LinkedFieldName': 'Company',
+                    'IsRightLinked': true,
+                    'SearchArea': {
+                        'Height': 10.0,
+                        'Width': 100.0
+                    },
+                    'AutoScale': true
+                }
+            }
+        ],
+        'Tables': [
+            {
+                'TableName': 'Companies',
+                'DetectorParameters': {
+                    'Rectangle': {
+                        'Position': {
+                            'X': 77.0,
+                            'Y': 116.0
+                        },
+                        'Size': {
+                            'Height': 41.0,
+                            'Width': 480.0
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    'FileInfo': {
+        'FilePath': 'words\\docx\\companies.docx',
+        'StorageName': ''
     }
 }"
 ```
+{{< /tab >}}
 
+{{< tab "Windows CMD" >}}
+
+```cmd
+:: First get JSON Web Token
+:: Retrieve your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
+curl -v "https://api.groupdocs.cloud/connect/token" ^
+  -X POST ^
+  -d "grant_type=client_credentials&client_id=%CLIENT_ID%&client_secret=%CLIENT_SECRET%" ^
+  -H "Content-Type: application/x-www-form-urlencoded" ^
+  -H "Accept: application/json"
+
+:: cURL example to parse a document
+curl -v "https://api.groupdocs.cloud/v1.0/parser/parse" ^
+  -X POST ^
+  -H "Content-Type: application/json" ^
+  -H "Accept: application/json" ^
+  -H "Authorization: Bearer %JWT_TOKEN%" ^
+  -d "{\"Template\":{\"Fields\":[{\"FieldName\":\"Address\",\"FieldPosition\":{\"FieldPositionType\":\"Regex\",\"Regex\":\"Company address:\"}},{\"FieldName\":\"CompanyAddress\",\"FieldPosition\":{\"FieldPositionType\":\"Linked\",\"LinkedFieldName\":\"ADDRESS\",\"IsRightLinked\":true,\"SearchArea\":{\"Height\":10.0,\"Width\":100.0},\"AutoScale\":true}},{\"FieldName\":\"Company\",\"FieldPosition\":{\"FieldPositionType\":\"Regex\",\"Regex\":\"Company name:\"}},{\"FieldName\":\"CompanyName\",\"FieldPosition\":{\"FieldPositionType\":\"Linked\",\"LinkedFieldName\":\"Company\",\"IsRightLinked\":true,\"SearchArea\":{\"Height\":10.0,\"Width\":100.0},\"AutoScale\":true}}],\"Tables\":[{\"TableName\":\"Companies\",\"DetectorParameters\":{\"Rectangle\":{\"Position\":{\"X\":77.0,\"Y\":116.0},\"Size\":{\"Height\":41.0,\"Width\":480.0}}}}]},\"FileInfo\":{\"FilePath\":\"words\\docx\\companies.docx\",\"StorageName\":\"\"}}"
+```
 {{< /tab >}}
 {{< tab "Response" >}}
 

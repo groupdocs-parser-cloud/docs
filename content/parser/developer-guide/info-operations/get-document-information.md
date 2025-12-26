@@ -41,26 +41,74 @@ HTTP POST ~/info
 The following example demonstrates how to get document information.
 
 {{< tabs "example1">}}
-{{< tab "Request" >}}
+{{< tab "Linux/MacOS/Bash" >}}
 
 ```bash
 # First get JSON Web Token
 # Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
-# Kindly place Client Id in "client_id" and Client Secret in "client_secret" argument.
+# The client credentials are read from environment variables $CLIENT_ID and $CLIENT_SECRET.
 curl -v "https://api.groupdocs.cloud/connect/token" \
--X POST \
--d "grant_type#client_credentials&#x26;client_id#xxxx&#x26;client_secret#xxxx" \
--H "Content-Type: application/x-www-form-urlencoded" \
--H "Accept: application/json"
-  
+  -X POST \
+  -d 'grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET' \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Accept: application/json"
+
 # cURL example to get document information
+# The JWT token is read from the environment variable $JWT_TOKEN.
 curl -v "https://api.groupdocs.cloud/v1.0/parser/info" \
--X POST \
--H "Content-Type: application/json" \
--H "Accept: application/json" \
--H "Authorization: Bearer 
-<jwt token>"
--d "{ FilePath: '/words/four-pages.docx' }"
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -d '{ "FilePath": "/words/four-pages.docx" }'
+```
+
+{{< /tab >}}
+
+{{< tab "Windows PowerShell" >}}
+
+```powershell
+# First get JSON Web Token
+# Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
+# The client credentials are read from environment variables $env:CLIENT_ID and $env:CLIENT_SECRET.
+curl.exe -v "https://api.groupdocs.cloud/connect/token" `
+  -X POST `
+  -d "grant_type=client_credentials&client_id=$env:CLIENT_ID&client_secret=$env:CLIENT_SECRET" `
+  -H "Content-Type: application/x-www-form-urlencoded" `
+  -H "Accept: application/json"
+
+# cURL example to get document information
+# The JWT token is read from the environment variable $env:JWT_TOKEN.
+curl.exe -v "https://api.groupdocs.cloud/v1.0/parser/info" `
+  -X POST `
+  -H "Content-Type: application/json" `
+  -H "Accept: application/json" `
+  -H "Authorization: Bearer $env:JWT_TOKEN" `
+  -d "`n{ 'FilePath': '/words/four-pages.docx' }`n"
+```
+
+{{< /tab >}}
+
+{{< tab "Windows CMD" >}}
+
+```cmd
+REM First get JSON Web Token
+REM Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
+REM The client credentials are read from environment variables %CLIENT_ID% and %CLIENT_SECRET%.
+curl -v "https://api.groupdocs.cloud/connect/token" ^
+  -X POST ^
+  -d "grant_type=client_credentials&client_id=%CLIENT_ID%&client_secret=%CLIENT_SECRET%" ^
+  -H "Content-Type: application/x-www-form-urlencoded" ^
+  -H "Accept: application/json"
+
+REM cURL example to get document information
+REM The JWT token is read from the environment variable %JWT_TOKEN%.
+curl -v "https://api.groupdocs.cloud/v1.0/parser/info" ^
+  -X POST ^
+  -H "Content-Type: application/json" ^
+  -H "Accept: application/json" ^
+  -H "Authorization: Bearer %JWT_TOKEN%" ^
+  -d "{\"FilePath\": \"/words/four-pages.docx\"}"
 ```
 
 {{< /tab >}}

@@ -32,31 +32,75 @@ HTTP POST ~/container
 The following example demonstrates how to get document information.
 
 {{< tabs "example1">}}
-{{< tab "Request" >}}
+{{< tab "Linux/MacOS/Bash" >}}
 
 ```bash
 # First get JSON Web Token
 # Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
-# Kindly place Client Id in "client_id" and Client Secret in "client_secret" argument.
+# The credentials are read from environment variables: $CLIENT_ID and $CLIENT_SECRET.
 curl -v "https://api.groupdocs.cloud/connect/token" \
--X POST \
--d "grant_type#client_credentials&#x26;client_id#xxxx&#x26;client_secret#xxxx" \
--H "Content-Type: application/x-www-form-urlencoded" \
--H "Accept: application/json"
-  
+  -X POST \
+  -d 'grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET' \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Accept: application/json"
+
 # cURL example to join several documents into one
+# The JWT token is taken from the $JWT_TOKEN environment variable.
 curl -v "https://api.groupdocs.cloud/v1.0/parser/container" \
--X POST \
--H "Content-Type: application/json" \
--H "Accept: application/json" \
--H "Authorization: Bearer 
-<jwt token>"
--d "{
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -d '{
     "FileInfo": {
-        "FilePath": "containers\archive\docx.zip",
+        "FilePath": "containers/archive/docx.zip",
         "StorageName": ""
     }
-}"
+}'
+```
+
+{{< /tab >}}
+{{< tab "Windows PowerShell" >}}
+
+```powershell
+# First get JSON Web Token
+# Credentials are read from environment variables: $env:CLIENT_ID and $env:CLIENT_SECRET.
+curl.exe -v "https://api.groupdocs.cloud/connect/token" `
+  -X POST `
+  -d "grant_type=client_credentials&client_id=$env:CLIENT_ID&client_secret=$env:CLIENT_SECRET" `
+  -H "Content-Type: application/x-www-form-urlencoded" `
+  -H "Accept: application/json"
+
+# cURL example to join several documents into one
+# The JWT token is taken from the $env:JWT_TOKEN environment variable.
+curl.exe -v "https://api.groupdocs.cloud/v1.0/parser/container" `
+  -X POST `
+  -H "Content-Type: application/json" `
+  -H "Accept: application/json" `
+  -H "Authorization: Bearer $env:JWT_TOKEN" `
+  -d "{ 'FileInfo': { 'FilePath': 'containers\archive\docx.zip', 'StorageName': '' } }"
+```
+
+{{< /tab >}}
+{{< tab "Windows CMD" >}}
+
+```cmd
+:: First get JSON Web Token
+:: Credentials are read from environment variables: %CLIENT_ID% and %CLIENT_SECRET%.
+curl -v "https://api.groupdocs.cloud/connect/token" ^
+  -X POST ^
+  -d "grant_type=client_credentials&client_id=%CLIENT_ID%&client_secret=%CLIENT_SECRET%" ^
+  -H "Content-Type: application/x-www-form-urlencoded" ^
+  -H "Accept: application/json"
+
+:: cURL example to join several documents into one
+:: The JWT token is taken from the %JWT_TOKEN% environment variable.
+curl -v "https://api.groupdocs.cloud/v1.0/parser/container" ^
+  -X POST ^
+  -H "Content-Type: application/json" ^
+  -H "Accept: application/json" ^
+  -H "Authorization: Bearer %JWT_TOKEN%" ^
+  -d "{\"FileInfo\":{\"FilePath\":\"containers\\archive\\docx.zip\",\"StorageName\":\"\"}}"
 ```
 
 {{< /tab >}}

@@ -20,34 +20,79 @@ The following GroupDocs.Parser Cloud REST API resource has been used in the [Par
 ## cURL example
 
 {{< tabs "example1">}}
-{{< tab "Request" >}}
+{{< tab "Linux/MacOS/Bash" >}}
 
 ```bash
 # First get JSON Web Token
 # Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
-# Kindly place Client Id in "client_id" and Client Secret in "client_secret" argument.
+# The client credentials are taken from environment variables.
 curl -v "https://api.groupdocs.cloud/connect/token" \
--X POST \
--d "grant_type#client_credentials&#x26;client_id#xxxx&#x26;client_secret#xxxx" \
--H "Content-Type: application/x-www-form-urlencoded" \
--H "Accept: application/json"
-  
-# cURL example to join several documents into one
+  -X POST \
+  -d "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -H "Accept: application/json"
+
+# cURL example to parse a document
 curl -v "https://api.groupdocs.cloud/v1.0/parser/parse" \
--X POST \
--H "Content-Type: application/json" \
--H "Accept: application/json" \
--H "Authorization: Bearer 
-<jwt token>" \
--d "{
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -d '{
     "FileInfo": {
-        "FilePath": "containers\archive\sample.zip",
+        "FilePath": "containers/archive/sample.zip"
     },
-    "TemplatePath": "templates\template-for-companies.json",
+    "TemplatePath": "templates/template-for-companies.json",
     "ContainerItemInfo": {
         "RelativePath": "companies.docx"
     }
-}"
+}'
+```
+
+{{< /tab >}}
+
+{{< tab "Windows PowerShell" >}}
+
+```powershell
+# First get JSON Web Token
+# Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
+# The client credentials are taken from environment variables.
+curl.exe -v "https://api.groupdocs.cloud/connect/token" `
+  -X POST `
+  -d "grant_type=client_credentials&client_id=$env:CLIENT_ID&client_secret=$env:CLIENT_SECRET" `
+  -H "Content-Type: application/x-www-form-urlencoded" `
+  -H "Accept: application/json"
+
+# cURL example to parse a document
+curl.exe -v "https://api.groupdocs.cloud/v1.0/parser/parse" `
+  -X POST `
+  -H "Content-Type: application/json" `
+  -H "Accept: application/json" `
+  -H "Authorization: Bearer $env:JWT_TOKEN" `
+  -d "{ 'FileInfo': { 'FilePath': 'containers/archive/sample.zip' }, 'TemplatePath': 'templates/template-for-companies.json', 'ContainerItemInfo': { 'RelativePath': 'companies.docx' } }"
+```
+
+{{< /tab >}}
+
+{{< tab "Windows CMD" >}}
+
+```cmd
+rem First get JSON Web Token
+rem Please get your Client Id and Client Secret from https://dashboard.groupdocs.cloud/applications.
+rem The client credentials are taken from environment variables.
+curl -v "https://api.groupdocs.cloud/connect/token" ^
+  -X POST ^
+  -d "grant_type=client_credentials&client_id=%CLIENT_ID%&client_secret=%CLIENT_SECRET%" ^
+  -H "Content-Type: application/x-www-form-urlencoded" ^
+  -H "Accept: application/json"
+
+rem cURL example to parse a document
+curl -v "https://api.groupdocs.cloud/v1.0/parser/parse" ^
+  -X POST ^
+  -H "Content-Type: application/json" ^
+  -H "Accept: application/json" ^
+  -H "Authorization: Bearer %JWT_TOKEN%" ^
+  -d "{\"FileInfo\":{\"FilePath\":\"containers/archive/sample.zip\"},\"TemplatePath\":\"templates/template-for-companies.json\",\"ContainerItemInfo\":{\"RelativePath\":\"companies.docx\"}}"
 ```
 
 {{< /tab >}}

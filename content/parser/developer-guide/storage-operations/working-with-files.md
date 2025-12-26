@@ -153,6 +153,49 @@ Our API is completely independent of your operating system, database system or d
 {{< /tab >}}
 {{< tab "Java" >}}
 {{< gist groupdocscloud c8b8e01a52ef2bae6fa5d78aba152238 Parser_Java_Upload_File.java >}}
+{{< /tab >}} {{< tab "Python" >}}
+
+```python
+# Import modules
+import groupdocs_parser_cloud
+import os
+
+class Upload_File:
+    # Obtain your client_id and client_secret at https://dashboard.groupdocs.cloud
+    client_id = "XXXX-XXXX-XXXX-XXXX"
+    client_secret = "XXXXXXXXXXXXXXXX"
+    
+    @classmethod  
+    def GetConfig(cls):
+        configuration = groupdocs_parser_cloud.Configuration(cls.client_id, cls.client_secret)
+        configuration.api_base_url = "https://api.groupdocs.cloud"
+        return configuration
+
+    @classmethod
+    def UploadLocalFile(self):
+        # Create instance of the API
+        fileApi = groupdocs_parser_cloud.FileApi.from_config(cls.GetConfig())
+        
+        try:
+            request = groupdocs_parser_cloud.UploadFileRequest("Document.docx", "/localFolder/Document.docx", None)
+            response = fileApi.upload_file(request)            
+            print("Expected response type is FilesUploadResult: " + str(response))
+        except groupdocs_conversion_cloud.ApiException as e:
+            print("Exception while calling API: {0}".format(e.message))
+
+    @classmethod
+    def UploadStream(self):
+        # Create instance of the API
+        fileApi = groupdocs_parser_cloud.FileApi.from_config(cls.GetConfig())
+        
+        try:
+          with open("/localFolder/Document.docx", 'rb') as stream:
+            request = UploadFileRequest("Document.docx", stream)
+            fileApi.upload_file(request)
+        except groupdocs_conversion_cloud.ApiException as e:
+            print("Exception while calling API: {0}".format(e.message))
+```
+
 {{< /tab >}}
 {{< /tabs >}}
 
